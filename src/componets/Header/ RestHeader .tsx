@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const  RestHeader = axios.create({
-  baseURL: 'http://192.168.5.7:3000/api',  // Certifique-se de que este é o caminho correto
+  baseURL: 'https://bingo-online-nu.vercel.app/api',  // Certifique-se de que este é o caminho correto
   headers: {
     'Content-Type': 'application/json',
   },
