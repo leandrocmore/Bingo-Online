@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "env": {
+    "DATABASE_URL": "postgresql://postgres:CHbfHmcXoAmfgCxtnwuRroUaTwkcGDIN@autorack.proxy.rlwy.net:38799/railway"
+  }
+}

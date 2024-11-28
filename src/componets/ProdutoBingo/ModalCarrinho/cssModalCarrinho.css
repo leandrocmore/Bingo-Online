@@ -1,0 +1,46 @@
+/* cssModalCarrinho.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8); /* Fundo escurecido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 150%; /* Aumenta a largura do modal */
+  max-width: 1000px; /* Limite máximo */
+  height: 80%; /* Altura maior */
+
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  overflow-y: auto; /* Scroll se o conteúdo ultrapassar */
+}
+
+.carrinho-fundo {
+  max-width: 1000px;
+  width: 800px; /* Ocupa todo o espaço disponível */
+  height: auto; /* Altura completa */
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+p{
+  color: white;
+}
+h2{
+  color: white;
+}
+form{
+  color: white;
+}

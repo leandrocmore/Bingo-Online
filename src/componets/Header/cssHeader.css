@@ -1,0 +1,70 @@
+header {
+  background-color: #00214d;
+  width: 100%;
+  max-width: 100%; /* Garante que não ultrapasse a largura da tela */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding: 20px;
+  box-sizing: border-box; /* Inclui padding e bordas na largura total */
+  overflow-x: hidden; /* Evita rolagem horizontal */
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Ajusta itens para caberem em múltiplas linhas, se necessário */
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+  header {
+    max-width: 100%;
+    height: auto; /* Ajusta altura */
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: column; /* Muda a direção dos itens do menu */
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+}
+
+/* Media Query para telas entre 769px e 1199px */
+@media (max-width: 1199px) and (min-width: 769px) {
+  header {
+    width: 100%;
+  }
+}

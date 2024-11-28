@@ -1,0 +1,33 @@
+.fundo {
+    padding: 5px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: #00214d;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; /* Efeito neon mais sutil */
+    border: 1px solid #00ffff; /* Linha fina neon azul */
+}
+
+/* Media Query para telas menores que 768px */
+@media (max-width: 768px) {
+    .fundo {
+        
+        padding: 10px; /* Aumenta o padding para melhorar a legibilidade em telas pequenas */
+        border-radius: 10px; /* Ajusta o border-radius para telas menores */
+        box-shadow: 0 0 3px #00ffff, 0 0 6px #00ffff; /* Suaviza o efeito neon em telas pequenas */
+        border: 1px solid #00ffff; /* Mantém a borda, mas pode ser ajustada se necessário */
+    }
+}
+
+/* Media Query para telas entre 769px e 1199px */
+@media (max-width: 1199px) and (min-width: 769px) {
+    .fundo {
+        padding: 8px; /* Ajusta o padding para telas médias */
+        border-radius: 15px; /* Bordas levemente menores */
+        box-shadow: 0 0 4px #00ffff, 0 0 8px #00ffff; /* Suaviza o efeito neon para telas médias */
+        border: 1px solid #00ffff; /* Mantém a borda fina */
+    }
+}

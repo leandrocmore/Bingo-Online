@@ -1,0 +1,98 @@
+// This is your Prisma schema file,
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Prisma Generator para o cliente JavaScript
+// para atualizar use: { npx prisma migrate dev , npx prisma migrate dev --name }
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Definição da fonte de dados (PostgreSQL)
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // A URL do banco de dados está configurada nas variáveis de ambiente
+}
+
+
+// Tabela de usuários
+model UserClientes { 
+  Tel           String     @id  @unique
+  Nome          String                                        // Nome do usuário                       // Número de telefone (único) do usuário                                       
+  TransacaoId   TransacaoPagos[]                                   
+  CarrinhoId      Carrinho[]    
+  @@map("UserClientes")
+}
+
+// Tabela de carrinho
+// Está relacionado com cliente para fazer GET 
+// quando o usuário buscar o carrinho em uma eventual saída da página.
+// O carrinho só estará ativo se não tiver expirado.
+// A lógica do carrinho envolve mudar o status do produto para processadoPG.
+model Carrinho {
+  IdCarrinho       Int    @id @default(autoincrement())
+  ProdutoId       Int[]
+  DataHoraInicio  DateTime      
+  Quantidade      Int           @default(1)
+  TelClientesId    String
+  Status          CarrinhoStatus @default(EmProcessamento)
+   UserClientes    UserClientes  @relation(fields: [TelClientesId], references: [Tel])
+
+  @@map("Carrinho")
+}
+
+enum CarrinhoStatus {
+  EmProcessamento
+  PagamentoPendente
+  PagamentoConfirmado
+  Cancelado
+}
+
+// Tabela de produtos (cartelas e números para venda)
+model Produto { 
+  Id             Int             @id                      // Data em que o produto entrou para venda
+  Numeros        Int[]                                        // Quantidade de números/cartelas para venda
+  Status         ProdutoStatus   @default(Disponivel)         // Status do produto
+
+  @@map("Produto")
+}
+
+enum ProdutoStatus {
+  Indisponivel
+  Disponivel
+  Comprado
+}
+
+// Tabela de transações (produtos pagos pelos usuários)
+model TransacaoPagos {
+  Id              Int           @id @default(autoincrement())
+  TelClientesId   String
+  ProdutoId       Int[]
+  Quantidade      Int
+  Status          String        // ex.: "success", "failed"
+  DataTransacao   DateTime     
+  UserClientes    UserClientes  @relation(fields: [TelClientesId], references: [Tel])
+
+  @@map("TransacaoPagos")
+}
+
+// Emgloba as campanhas
+model ProdutoPreco {
+  Id    Int     @id @default(autoincrement())
+  Preco Decimal @db.Decimal(10, 2) // Precisão de 2 casas decimais
+
+  @@map("ProdutoPreco")
+}
+
+model BingoMapWin {
+  MapWinId       Int    @id 
+  MapWin  Json   // Armazena a estrutura JSON com positions e letter estruras complexas adorei 
+   @@map("BingoMapWin")
+}
+
+/// vai receber os numero sorteados 
+model Sorteador {
+   SorteadorId Int @id
+   NumeroSorteados  Int[] 
+    @@map("Sorteador")
+} 
