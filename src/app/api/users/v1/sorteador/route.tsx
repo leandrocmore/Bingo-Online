@@ -3,7 +3,7 @@ import PrismaGlobal from "@/lib/PrismaGlobal/PrismaGlobal";
 
 // GET para buscar produtos - limitando a seis para o frontend
 export async function GET() {
-    console.log(NextRequest,"venho de request")
+   
     try {
         const Sorte = await PrismaGlobal.sorteador.findMany({
             

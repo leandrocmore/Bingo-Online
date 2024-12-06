@@ -1,0 +1,81 @@
+main {
+  background-color: #00051f;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: -18px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  box-sizing: border-box; /* Inclui padding e borda na largura e altura */
+  border: 2px solid #ff0202;
+
+}
+
+
+main h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+main p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+}
+.fundo-controle-interno-cxVenda {
+  width: 100%;
+  height: auto;
+  
+  display: flex;
+  flex-direction: row; /* Alterado para alinhar os componentes lado a lado */
+  justify-content: space-between; /* Ajuste conforme necessário: 'space-between' para separá-los */
+  align-items: center;
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+  .fundo-controle-interno-cxVenda {
+    flex-direction: column; /* Para empilhar os itens em telas menores */
+  }
+
+  main {
+    width: 100%;
+    padding: 20px;
+  }
+
+  main h1 {
+    font-size: 1.5rem;
+  }
+
+  main p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+}
+
+/* Media Query para telas entre 769px e 1199px */
+@media (max-width: 1199px) and (min-width: 769px) {
+  .fundo-controle-interno-cxVenda {
+    flex-direction: column; /* Para empilhar os itens em telas menores */
+  }
+  main {
+    width: 100%;
+    padding: 30px;
+  }
+
+  main h1 {
+    font-size: 1.8rem;
+  }
+
+  main p {
+    font-size: 1.1rem;
+  }
+}

@@ -2,6 +2,7 @@
 
 
 
+
 import Header from "@/componets/Header/Header";
 import UserPagos from "@/componets/ProdutoBingo/UserPagos/userPagos";
 import { Suspense } from "react";

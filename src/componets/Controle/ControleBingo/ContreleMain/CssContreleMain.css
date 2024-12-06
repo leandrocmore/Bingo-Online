@@ -1,0 +1,15 @@
+.controleMain {
+    display: grid;
+    border-radius: 1px; /* Arredondamento mínimo */
+  
+    gap: 15px; /* Espaço entre itens */
+    max-width: 600px; /* Largura máxima */
+    margin: 5 auto; /* Centraliza na tela */
+}
+.controle{
+    margin: 5 auto;
+   
+}
+h3{
+    color: white;
+}

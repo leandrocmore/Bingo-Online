@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import PrismaGlobal from "@/lib/PrismaGlobal/PrismaGlobal";
-import { limparCarrinhosExpirados } from "@/lib/controleApi/LimpezaAtualizador";
 
 // Em seu arquivo principal (por exemplo, server.js ou index.js)
 //import "../../../../../lib/controleApi/limpezaCarrinhosCron";
+import { limparCarrinhosExpirados } from "@/lib/controleApi/LimpezaAtualizador";
 // Garantindo que o cron job seja iniciado
 
-
+//import { limparCarrinhosExpirados} from "../../../../../lib/controleApi/" 
 
 // Iniciar limpeza automática de carrinhos expirados
 setInterval(limparCarrinhosExpirados , 1000)

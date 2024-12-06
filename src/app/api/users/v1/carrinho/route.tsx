@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import PrismaGlobal from "@/lib/PrismaGlobal/PrismaGlobal";
 
-// Regular expression to validate phone number (optional)
+
+/*// Regular expression to validate phone number (optional)
 //const telefoneValido = /^\d{2}\d{9}$/; // Example: 15996982622
 
 // Function to update the product status to "Indisponível"
@@ -61,8 +62,10 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
-}
+} */
 
+
+//manter a put para teste do banco 
 // PUT - Update an existing cart
 export async function PUT(req: NextRequest) {
   try {

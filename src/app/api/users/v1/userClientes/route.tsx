@@ -21,8 +21,7 @@ export async function GET () {
     }
 };
 // post mmetodo
-
-export async function POST(req: NextRequest) {
+/* export async function POST(req: NextRequest) {
     try {
         const { Nome, Tel  } = await req.json();
 
@@ -50,4 +49,4 @@ export async function POST(req: NextRequest) {
             { status: 500 }
         );
     }
-}
+} */

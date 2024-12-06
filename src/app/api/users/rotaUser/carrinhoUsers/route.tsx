@@ -1,6 +1,7 @@
 // esta rota  vai ser fechada por midewaer
 // ela nao vai para o  front  crair uma rota fora da pasta V1  
 
+//manter para teste 
 import {  NextResponse } from "next/server";
 
 import PrismaGlobal from "@/lib/PrismaGlobal/PrismaGlobal";

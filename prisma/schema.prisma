@@ -50,7 +50,7 @@ enum CarrinhoStatus {
 
 // Tabela de produtos (cartelas e números para venda)
 model Produto { 
-  Id             Int             @id                      // Data em que o produto entrou para venda
+  Id             Int             @id   @unique                    // Data em que o produto entrou para venda
   Numeros        Int[]                                        // Quantidade de números/cartelas para venda
   Status         ProdutoStatus   @default(Disponivel)         // Status do produto
 
@@ -78,21 +78,21 @@ model TransacaoPagos {
 
 // Emgloba as campanhas
 model ProdutoPreco {
-  Id    Int     @id @default(autoincrement())
+  Id    Int     @id  @unique
   Preco Decimal @db.Decimal(10, 2) // Precisão de 2 casas decimais
 
   @@map("ProdutoPreco")
 }
 
 model BingoMapWin {
-  MapWinId       Int    @id 
+  MapWinId       Int    @id  @unique
   MapWin  Json   // Armazena a estrutura JSON com positions e letter estruras complexas adorei 
    @@map("BingoMapWin")
 }
 
 /// vai receber os numero sorteados 
 model Sorteador {
-   SorteadorId Int @id
+   SorteadorId Int @id  @unique
    NumeroSorteados  Int[] 
     @@map("Sorteador")
 } 

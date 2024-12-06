@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const RestUserPagos = axios.create({
-  baseURL: 'https://bingo-online-nu.vercel.app/', // Certifique-se de que este é o caminho correto
+  baseURL: 'http://192.168.5.7:3000/', // Certifique-se de que este é o caminho correto
   headers: {
     'Content-Type': 'application/json',
   },

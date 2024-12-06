@@ -5,30 +5,14 @@ import { NextRequest, NextResponse } from "next/server";
 import PrismaGlobal from "@/lib/PrismaGlobal/PrismaGlobal";
 
 
-// get de todas as camapanhas 
+// get de todas as camapanhas  
 
 export async function GET() {
     try {
-        const allowedIds = [1]; // Defina os IDs permitidos
-        const produtoPrecoPromises = allowedIds.map(id => 
-            PrismaGlobal.produtoPreco.findMany({ where: { Id: id } })
+      
+       const Preco = await PrismaGlobal.produtoPreco.findMany({});
 
-        );
-
-        const produtosPrecos = await Promise.all(produtoPrecoPromises);
-        
-        
-        // Combine todos os resultados em um único array
-        const allProdutosPreco = produtosPrecos.flat();
-
-        if (allProdutosPreco.length === 0) {
-            return NextResponse.json(
-                { message: "Nenhum Preco encontrado" },
-                { status: 404 }
-            );
-        }
-
-        return NextResponse.json({ message: "ok", produtosPreco: allProdutosPreco });
+       return NextResponse.json({ message: "ok", Preco });
     } catch (error) {
         console.error("Erro ao buscar produtos:", error);
         return NextResponse.json(
@@ -44,9 +28,9 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
     try {
-        const { Preco } = await req.json();
+        const { Id ,Preco } = await req.json();
 
-        if (typeof Preco !== "number" || isNaN(Preco)) {
+        if (!Id || typeof Preco !== "number" || isNaN(Preco)) {
             return NextResponse.json({ message: "Preço inválido." }, { status: 400 });
         }
 
@@ -55,6 +39,7 @@ export async function POST(req: NextRequest) {
 
         const produto = await PrismaGlobal.produtoPreco.create({
             data: {
+                Id,
                 Preco: precoFormatado, // Use o preço formatado
             },
         });
