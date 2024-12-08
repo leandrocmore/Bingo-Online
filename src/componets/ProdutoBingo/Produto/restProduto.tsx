@@ -1,5 +1,5 @@
 "use client"
-import axios from "axios";
+import { RestLnkApi } from "../../../lib/linkRotas/LinkAPI"
 
 interface Produto {
     Id: number;
@@ -16,17 +16,12 @@ interface ProdutoResponse {
     }[];
 }
 
-const RestProduto = axios.create({
-    baseURL: 'http://192.168.5.7:3000/api',  // Certifique-se de que este é o caminho correto
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
+
 
 // Função para buscar produtos preco
 export const getRestProduto = async (): Promise<Produto[]> => {
     try {
-        const response = await RestProduto.get<ProdutoResponse>('/users/rotaUser/produto');
+        const response = await RestLnkApi.get<ProdutoResponse>('/users/rotaUser/produto');
 
         if(response.data && Array.isArray(response.data.Produto) ){
             return  response.data.Produto.map(item => ({
@@ -61,7 +56,7 @@ interface ProdutoPrecoResponse {
 // Função para buscar produtos
 export const getRestProdutoPreco = async (): Promise<ProdutoPreco[]> => {
     try {
-        const response = await RestProduto.get<ProdutoPrecoResponse>('/users/rotaUser/preco');
+        const response = await RestLnkApi.get<ProdutoPrecoResponse>('/users/rotaUser/preco');
 
         // Verifica se a resposta contém produtosPreco como array
         if (response.data && Array.isArray(response.data.produtosPreco)) {
@@ -79,4 +74,4 @@ export const getRestProdutoPreco = async (): Promise<ProdutoPreco[]> => {
 
 
 
-export default RestProduto;
+

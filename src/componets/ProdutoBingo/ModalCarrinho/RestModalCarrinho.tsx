@@ -1,5 +1,5 @@
 "use client"
-import axios from "axios";
+import { RestLnkApi } from "../../../lib/linkRotas/LinkAPI"
 
 type UserClienteData = {
   Nome: string;
@@ -16,16 +16,11 @@ type CarrinhoData = {
   // Outros campos relevantes
 };
 
-const RestaddUserClientes = axios.create({
-  baseURL: 'http://192.168.5.7:3000/api',  // Certifique-se de que este é o caminho correto
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+
 
 export const GetUserClientes = async (tel: string) => {
   try {
-    const response = await RestaddUserClientes.get(`/users/rotaUser/user?Tel=${encodeURIComponent(tel)}`);
+    const response = await RestLnkApi.get(`/users/rotaUser/user?Tel=${encodeURIComponent(tel)}`);
     if (response.data.mensagem === 'ok') {
       return response.data.userCliente;
     } else {
@@ -39,7 +34,7 @@ export const GetUserClientes = async (tel: string) => {
 
 export const PostUserClientes = async (Data: UserClienteData) => {
   try {
-    const response = await RestaddUserClientes.post('/users/rotaUser/user', Data);
+    const response = await RestLnkApi.post('/users/rotaUser/user', Data);
     return response.data;
   } catch (error) {
     console.error('Erro ao adicionar comprador:', error);
@@ -49,7 +44,7 @@ export const PostUserClientes = async (Data: UserClienteData) => {
 
 export const PostUsersCarrinho = async (Data: CarrinhoData) => {
   try {
-    const response = await RestaddUserClientes.post('/users/rotaUser/carrinho', Data);
+    const response = await RestLnkApi.post('/users/rotaUser/carrinho', Data);
     return response.data;
   } catch (error) {
     console.error('Erro ao adicionar Carrinho:', error);
@@ -57,4 +52,4 @@ export const PostUsersCarrinho = async (Data: CarrinhoData) => {
   }
 };
 
-export default RestaddUserClientes;
+

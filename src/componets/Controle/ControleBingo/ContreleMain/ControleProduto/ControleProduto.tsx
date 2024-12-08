@@ -1,9 +1,10 @@
 "use client"
 
 import { ChangeEvent, FormEvent, useState } from "react"
-import { postControleProduto } from "./RestControleProduto";
-import "./CssControleProduto.css"
 
+import "./CssControleProduto.css"
+import { postControleProduto } from "./RestControleProduto";
+  
 interface Produto {
     Id: number;
     Numeros: number[]; 

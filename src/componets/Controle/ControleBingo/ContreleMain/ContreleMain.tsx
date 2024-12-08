@@ -1,6 +1,7 @@
 "use client"
 
 
+import LouguiOut from "../../loguinOut/page"
 import FundoCtr from "../Main/MainComponents/Fundo/FundoCtr"
 import ControleMapa from "./ControleMapa/ControleMapa"
 import ControlePreco from "./ControlePreco/ControlePreco"
@@ -13,6 +14,7 @@ export default function ControleMain(){
     
     return(
         <FundoCtr>
+<LouguiOut/>
      <div className="controleMain">
 
             

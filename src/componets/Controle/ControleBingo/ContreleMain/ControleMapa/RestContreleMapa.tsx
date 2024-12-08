@@ -1,5 +1,5 @@
 "use client"
-import axios from 'axios';
+import { RestLnkApi } from "../../../../../lib/linkRotas/LinkAPI";
 
 interface MapWinData {
     MapWinId: number;
@@ -7,23 +7,15 @@ interface MapWinData {
 }
 
 
-const RestContreleMapa = axios.create({
-    baseURL: 'http://192.168.5.7:3000/api', // Ajuste o baseURL conforme necessário
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
-
 // Função para POST
 export const postRestContreleMapa = async (data: MapWinData): Promise<MapWinData> => {
-    const response = await RestContreleMapa.post('/users/v1/mapWin', data);
+    const response = await RestLnkApi.post('/users/v1/mapWin', data);
     return response.data;
 };
 
 // Função para GET
 export const getRestContreleMapa = async (): Promise<MapWinData[]> => {
-    const response = await RestContreleMapa.get('/users/v1/mapWin');
+    const response = await RestLnkApi.get('/users/v1/mapWin');
     return response.data; // Retorna um array de MapWinData
 };
 
-export default RestContreleMapa;

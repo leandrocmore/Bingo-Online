@@ -14,6 +14,7 @@ export default function Controle() {
         <HeaderCtr/>
         <Suspense fallback={<div>Carregando jogo...</div>}>
           <ControleMain/>
+         
     </Suspense>
         </>
        

@@ -1,15 +1,10 @@
-import axios from "axios";
+import { RestLnkApi } from "../../lib/linkRotas/LinkAPI"
 
-const  RestHeader = axios.create({
-  baseURL: 'http://192.168.5.7:3000/api',  // Certifique-se de que este é o caminho correto
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+
 
 export const GetRestHeader  = async (tel: string) => {
   try {
-    const response = await  RestHeader .get( `/users/rotaUser/user?Tel=${encodeURIComponent(tel)}` );
+    const response = await  RestLnkApi .get( `/users/rotaUser/user?Tel=${encodeURIComponent(tel)}` );
     if (response.data.mensagem === 'ok') {
       return response.data.userCliente;
     } else {
@@ -21,4 +16,4 @@ export const GetRestHeader  = async (tel: string) => {
   }
 };
 
-export default  RestHeader ;
+

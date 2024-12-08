@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+import ProvidersWrapper from "@/lib/provaider/providersAuth";
 
 
 
@@ -17,7 +18,11 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body >
-        {children}
+      <ProvidersWrapper>
+           {children}
+
+
+       </ProvidersWrapper>
       </body>
     </html>
   );

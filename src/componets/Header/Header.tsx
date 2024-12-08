@@ -20,7 +20,7 @@ export default function Header() {
         const usuarioExistente = await GetRestHeader(tel);
         if (usuarioExistente) {
           setBusca({ Tel: usuarioExistente.Tel });
-          router.push(`/MeuBingo?api=/api/users/rotaUser/user?Tel=${encodeURIComponent(usuarioExistente.Tel)}`); // Redireciona para a rota desejada
+          router.push(`/MeuBingo?api=/users/rotaUser/user?Tel=${encodeURIComponent(usuarioExistente.Tel)}`); // Redireciona para a rota desejada
         }
       } catch (error) {
         console.error("Usuário não encontrado:", error);
