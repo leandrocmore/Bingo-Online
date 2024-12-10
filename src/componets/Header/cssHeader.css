@@ -4,17 +4,23 @@ header {
   max-width: 100%; /* Garante que não ultrapasse a largura da tela */
   color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* Alterado de coluna para linha */
+  justify-content: center; /* Espaça os itens para as extremidades */
+  align-items: center; /* Centraliza os itens verticalmente */
+  box-sizing: border-box; 
   height: 200px;
   padding: 20px;
   box-sizing: border-box; /* Inclui padding e bordas na largura total */
   overflow-x: hidden; /* Evita rolagem horizontal */
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-radius: 20px; /* Arredonda as bordas */
+}
+
+
+
+.image img {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
 }
 
 nav ul {
@@ -22,8 +28,8 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Ajusta itens para caberem em múltiplas linhas, se necessário */
+  justify-content: center; /* Centraliza os itens do menu */
+  flex-wrap: wrap; /* Ajusta itens para caberem em múltiplas linhas se necessário */
 }
 
 nav ul li {
@@ -43,7 +49,7 @@ nav ul li a:hover {
 /* Media Query para telas menores */
 @media (max-width: 768px) {
   header {
-    max-width: 100%;
+    flex-direction: column; /* Para telas pequenas, empilhar os itens */
     height: auto; /* Ajusta altura */
     padding: 10px;
   }

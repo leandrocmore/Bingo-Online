@@ -39,27 +39,31 @@ export default function Header() {
   };
 
   return (
+    <div>
+
     <header>
-      <h1>Minha Página</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <form onSubmit={ChamadaSubmit}>
-              <button type="submit">Meu Bingo</button>
-              <input
-                type="text"
-                name="Tel"
-                value={busca.Tel}
-                onChange={Registro}
-                placeholder="Seu Telefone"
-              />
-            </form>
-          </li>
-        </ul>
-      </nav>
-    </header>
+     <h1>Bingo</h1>
+    <nav>
+      <ul>
+        <li>  
+          <Link href="/">Home</Link>
+        </li>
+        <li>
+          <form onSubmit={ChamadaSubmit}>
+            <button type="submit">Meu Bingo</button>
+            <input
+              type="text"
+              name="Tel"
+              value={busca.Tel}
+              onChange={Registro}
+              placeholder="Seu Telefone"
+            />
+          </form>
+        </li> 
+      </ul>
+    </nav>
+   
+  </header></div>
+  
   );
 }
