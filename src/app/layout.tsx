@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import ProvidersWrapper from "@/lib/provaider/providersAuth";
+import { Analytics } from "@vercel/analytics/next";
 
 
 
@@ -21,7 +22,7 @@ export default function RootLayout({
       <ProvidersWrapper>
            {children}
 
-
+           <Analytics />
        </ProvidersWrapper>
       </body>
     </html>
