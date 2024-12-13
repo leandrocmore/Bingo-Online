@@ -69,7 +69,7 @@ const nextAuthOptions: NextAuthOptions = {
     // Improve type safety for redirect callback
     redirect: async ({ url, baseUrl }) => {
       if (url.startsWith(baseUrl)) {
-        return `${baseUrl}/v1/`;
+        return `${baseUrl}/Controle`;
       }
       console.log("Redirect failed", { url, baseUrl });
       return url;
