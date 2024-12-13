@@ -3,10 +3,12 @@
   "env": {
     "DATABASE_URL": "postgresql://postgres:CHbfHmcXoAmfgCxtnwuRroUaTwkcGDIN@autorack.proxy.rlwy.net:38799/railway"
   },
+
+
   "routes": [
     {
-      "src": "/api/cron-job",
-      "dest": "/api/cron-job.js"
+      "path": "/api/cron",
+      "schedule": "*/5 * * * *" 
     }
   ]
 }
