@@ -1,6 +1,7 @@
 {
   "version": 2,
   "env": {
+    "NEXTAUTH_SECRET": "Nsg5ep83MVh+z8lvwufe7+eYwipisdSXVdBwutvKlCg=",
     "DATABASE_URL": "postgresql://postgres:CHbfHmcXoAmfgCxtnwuRroUaTwkcGDIN@autorack.proxy.rlwy.net:38799/railway"
   },
   "routes": [
