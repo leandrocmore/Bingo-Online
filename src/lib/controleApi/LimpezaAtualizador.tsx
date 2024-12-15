@@ -14,6 +14,7 @@ type CarrinhoCustom = {
 async function atualizarStatusDisponivel(produtoIds: number[]) {
   try {
     const idsValidos = produtoIds.flat();
+    
     await PrismaGlobal.produto.updateMany({
       where: { Id: { in: idsValidos } },
       data: { Status: "Disponivel" },
