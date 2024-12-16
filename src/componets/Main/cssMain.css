@@ -67,7 +67,7 @@ main p {
     flex-direction: column; /* Para empilhar os itens em telas menores */
   }
   main {
-    width: 100%;
+    width: 67%;
     padding: 30px;
   }
 

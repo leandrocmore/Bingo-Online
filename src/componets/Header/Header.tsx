@@ -39,10 +39,18 @@ export default function Header() {
   };
 
   return (
-    <div>
-
+    <div className="fundo-Image" >
+     { /*<Image 
+      src="/fundoBingo2.png" 
+      alt="Fundo do Bingo" 
+      
+    /> */}
+     
     <header>
-     <h1>Bingo</h1>
+     
+    <div className="container-bingo">
+        <div className="bingo-3d bingo">Live</div>
+        <div className="bingo-3d live">Bingo</div></div>
     <nav>
       <ul>
         <li>  
@@ -63,7 +71,8 @@ export default function Header() {
       </ul>
     </nav>
    
-  </header></div>
+  </header>
+  </div>
   
   );
 }

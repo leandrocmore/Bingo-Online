@@ -12,7 +12,7 @@ export default function Main ( {children}:Main) {
     return( 
     
     <main> 
-      
+     
         <div className="fundo-controle-interno-cxVenda">
         {children}
         

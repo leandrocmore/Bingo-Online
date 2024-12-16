@@ -1,5 +1,6 @@
 header {
-  background-color: #00214d;
+   background-color: #00214d; 
+  z-index: 2;
   width: 100%;
   max-width: 100%; /* Garante que não ultrapasse a largura da tela */
   color: white;
@@ -15,13 +16,56 @@ header {
   border-radius: 20px; /* Arredonda as bordas */
 }
 
-
-
-.image img {
-  width: 150px;
-  height: 150px;
-  background-size: cover;
+.container-bingo {
+  perspective: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-color: #00214d;
 }
+
+.bingo-3d {
+  font-size: 100px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: transparent;
+  background: linear-gradient(45deg, #ff0000, hsl(51, 100%, 64%), #00ff00, #00ffff, #0000ff, #ff00ff);
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradient-move 5s infinite linear, light-effect 2s infinite ease-in-out;
+  transform: rotateX(10deg) rotateY(10deg); 
+  text-shadow: 
+    1px 1px 5px rgba(255, 255, 255, 0.8), 
+    0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes light-effect {
+  0%, 100% {
+    text-shadow: 
+      1px 1px 5px rgba(255, 255, 255, 0.8), 
+      0 0 10px rgba(255, 255, 255, 0.8), 
+      0 0 20px rgba(255, 0, 0, 0.6);
+  }
+  50% {
+    text-shadow: 
+      2px 2px 15px rgba(255, 255, 255, 1), 
+      0 0 25px rgba(0, 255, 255, 0.8), 
+      0 0 30px rgba(0, 0, 255, 0.8);
+  }
+}
+
 
 nav ul {
   list-style: none;
