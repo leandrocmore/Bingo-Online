@@ -46,18 +46,19 @@ export default function Header() {
       
     /> */}
      
-    <header>
+    <header className="header-main">
      
     <div className="container-bingo">
-        <div className="bingo-3d bingo">Live</div>
-        <div className="bingo-3d live">Bingo</div></div>
+        <h2 className="bingo-3d bingo">Live</h2>
+        <h1 className="bingo-3d live">Bingo</h1>
+    </div>
     <nav>
       <ul>
-        <li>  
-          <Link href="/">Home</Link>
-        </li>
+       
         <li>
           <form onSubmit={ChamadaSubmit}>
+            
+             <Link className="Link-Home" href="/">Home</Link>
             <button type="submit">Meu Bingo</button>
             <input
               type="text"

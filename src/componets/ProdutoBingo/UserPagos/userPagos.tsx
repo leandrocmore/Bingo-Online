@@ -58,7 +58,7 @@ export default function UserPagos() {
 //manda para  a pagina bingo  
   const bottonBingo = (IdBingo:number[] ) => {
     const idsParam = encodeURIComponent(IdBingo.join(","));
-  router.push(`/Bingo?Bingo=/users/rotaUser/produtoBingo?Id=${idsParam}`);
+  router.push(`/Bingo?Bingo=users/rotaUser/produtoBingo?Id=${idsParam}`);
   }
  
   // Variáveis para renderização condicional

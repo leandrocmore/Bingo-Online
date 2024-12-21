@@ -1,6 +1,5 @@
 "use client"
-import axios from "axios";
-
+import { RestLnkApi } from "../../../lib/linkRotas/LinkAPI"
 
 // Ajustando a interface ProdutoResponse para refletir a resposta correta
 interface ProdutoResponse {
@@ -12,16 +11,10 @@ interface ProdutoResponse {
   }[];
 }
 
-const RestJogoBingo = axios.create({
-  baseURL: 'http://192.168.5.7:3000/', // Certifique-se de que este é o caminho correto
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
 
 export const GetJogoBingo = async (Bingo: string) => {
   try {
-    const response = await RestJogoBingo.get<ProdutoResponse>(Bingo);
+    const response = await RestLnkApi.get<ProdutoResponse>(Bingo);
 
     // Garantindo que 'Produtos' seja um array e exista
     
@@ -45,7 +38,7 @@ export const GetJogoBingo = async (Bingo: string) => {
 // mapa para o bingo
 export const getMapWinJogoBingo= async ()  => {
   try {
-      const response = await RestJogoBingo.get('/api/users/rotaUser/mapWin');
+      const response = await RestLnkApi.get('/users/rotaUser/mapWin');
 
       // Exibe os produtos no console
       console.log('venho do get do mapaWin response', response); // Corrigido para 'produtosPreco'
@@ -64,7 +57,7 @@ export const getMapWinJogoBingo= async ()  => {
 // get sorteador 
 export const getSorteadorJogoBingo = async () => {
   try {
-    const response = await RestJogoBingo.get('/api/users/rotaUser/sorteados');
+    const response = await RestLnkApi.get('/users/rotaUser/sorteados');
     console.log("veio sorteador:", response.data.Sorte);
 
     const sorteador = response.data.Sorte;
@@ -85,7 +78,7 @@ export const getSorteadorJogoBingo = async () => {
 
 
 
-export default RestJogoBingo;
+
 
 /**export const getPaginaSorteio = async (): Promise<number[]> => {
     try {

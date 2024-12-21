@@ -80,7 +80,7 @@ export default function Produto() {
               }`}
             >
               <div className="produto-redondo-Id">
-                <h3>Nº: {cartela.Id}</h3>
+                <h3>Bingo Nº: {cartela.Id}</h3>
               </div>
 
               <table className="produto-table">
@@ -100,10 +100,10 @@ export default function Produto() {
                 </tbody>
               </table>
 
-              <hr />
+          
 
               <div className="produto-preco">
-                <h4>Preço: R$ {precoUnico.toFixed(2)}</h4>
+                <h4> R$ {precoUnico.toFixed(2)}</h4>
               </div>
 
               <div className="produto-carrinho-botton">
@@ -118,10 +118,13 @@ export default function Produto() {
           );
         })}
       </div>
-
-      <button className="produto-abrir-carrinho" onClick={() => setShowModal(true)}>
+      <div className="ver-carrinho" >
+<button onClick={() => setShowModal(true)}>
         Ver Carrinho
       </button>
+      </div>
+
+      
 
       {showModal && (
         <CarrinhoModal
