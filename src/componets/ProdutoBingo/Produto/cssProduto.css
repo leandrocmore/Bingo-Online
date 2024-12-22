@@ -3,12 +3,12 @@
     grid-template-columns: repeat(2, 1fr); /* 2 colunas de tamanhos iguais */
     gap: 15px; /* Espaço entre os itens */
     max-width: 600px; /* Limita a largura total */
-    margin: 0 auto; /* Centraliza o contêiner na tela */
+    margin-left: 0 auto; /* Centraliza o contêiner na tela */
 }
 
 .produto-interno-cartela {
     background: #ffad09;
-    width: 270px; /* Ajusta a largura para caber no grid */
+    width: 277px; /* Ajusta a largura para caber no grid */
     height: 300px;
     display: flex;
     justify-content: center;
@@ -93,6 +93,7 @@ Fundo .produto-table{
     box-shadow: 0 20px 25px -5px  rgba(248, 248, 248, 0.9); /* Ajuste o box-shadow para incluir um deslocamento */
 }
 .ver-carrinho{
+    
      display: flex; 
     justify-content: center;
     align-items: center;
@@ -100,7 +101,8 @@ Fundo .produto-table{
   
 }
 .ver-carrinho button{
-   
+margin-top: 15px ;
+margin-bottom: 9px;
     padding: 4px;
     border-radius: 4px;
     background-color: #007BFF;
@@ -142,6 +144,7 @@ Fundo .produto-table{
     .produto-main {
         grid-template-columns: 1fr; /* 1 coluna em vez de 2 */
         max-width: 100%; /* A largura se ajusta à tela */
+        margin-right: 7px;
     }
     
 
