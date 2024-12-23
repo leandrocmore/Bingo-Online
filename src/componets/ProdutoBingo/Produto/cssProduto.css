@@ -1,14 +1,14 @@
 .produto-main {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 colunas de tamanhos iguais */
-    gap: 15px; /* Espaço entre os itens */
+    gap: 8px; /* Espaço entre os itens */
     max-width: 600px; /* Limita a largura total */
-    margin-left: 0 auto; /* Centraliza o contêiner na tela */
+    
 }
 
 .produto-interno-cartela {
     background: #ffad09;
-    width: 277px; /* Ajusta a largura para caber no grid */
+    width: 285px; /* Ajusta a largura para caber no grid */
     height: 300px;
     display: flex;
     justify-content: center;

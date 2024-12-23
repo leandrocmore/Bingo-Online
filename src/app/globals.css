@@ -1,9 +1,10 @@
-html {
+html body {
+  margin: 0 auto;
   background-color: #080812; /* Cor de fundo do html */
   scrollbar-color: #001c44 #00051f; /* Cores da barra de rolagem */
 }
 ul {
   list-style-type: none; /* Remove os marcadores da lista */
   padding: 0; /* Remove o padding padrão */
-  margin: 0; /* Remove a margem padrão */
+  
 }
