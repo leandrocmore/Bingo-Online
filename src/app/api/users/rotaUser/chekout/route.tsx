@@ -5,11 +5,11 @@ import PrismaGlobal from "@/lib/PrismaGlobal/PrismaGlobal";
 export async function POST(request: Request) {
   try {
     const url = 'https://sandbox.asaas.com/api/v3/pix/qrCodes/static';
-    const access_token = process.env.ASAAS_API_KEY_SANDBOX;
-    console.log('Acesso token:', access_token);
+    const accessToken = process.env.ASAAS_API_KEY_SANDBOX;
+    console.log('Acesso token:', accessToken);
 
     // Verifique se a chave de API está definida
-    if (!access_token) {
+    if (!accessToken) {
       
       return NextResponse.json(
         { error: 'Chave de API não encontrada' },
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
-        access_token,
+        access_token:`${accessToken}`
       },
     };
 

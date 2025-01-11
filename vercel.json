@@ -3,8 +3,7 @@
   "env": {
     "NEXTAUTH_SECRET": "Nsg5ep83MVh+z8lvwufe7+eYwipisdSXVdBwutvKlCg=",
     "DATABASE_URL": "postgresql://postgres:CHbfHmcXoAmfgCxtnwuRroUaTwkcGDIN@autorack.proxy.rlwy.net:38799/railway",
-    ASAAS_API_KEY_SANDBOX: $aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OmI2Mzg1MjViLTRkZTAtNDllOS1hMzJiLTE3YTBlMjk1MTU5ZTo6JGFhY2hfZjg3ZjRjMjItNjk4Ni00MGQ2LTkzNTEtMzExMTdjYTBiZjA2
-    
+    "ASAAS_API_KEY_SANDBOX": "$aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OmI2Mzg1MjViLTRkZTAtNDllOS1hMzJiLTE3YTBlMjk1MTU5ZTo6JGFhY2hfZjg3ZjRjMjItNjk4Ni00MGQ2LTkzNTEtMzExMTdjYTBiZjA2"
   },
   "routes": [
     {
