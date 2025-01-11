@@ -2,14 +2,19 @@ import PrismaGlobal from "@/lib/PrismaGlobal/PrismaGlobal";
 import { CarrinhoStatus } from "@prisma/client";
 
 type CarrinhoCustom = {
-  IdCarrinho: number;
+  IdCarrinho: string;
   ProdutoId: number[];
   DataHoraInicio: Date;
   Quantidade: number;
   TelClientesId: string;
+  AssasCkeckup?: [AssasCkeckup];
   Status: string;
 };
-
+type AssasCkeckup = {
+  EncodedImage: string;
+  Payload: string;
+  carrinhoId: string 
+}
 // Função que atualiza o status dos produtos para "Disponível"
 async function atualizarStatusDisponivel(produtoIds: number[]) {
   try {
@@ -55,9 +60,9 @@ async function Transferencia(carrinho: CarrinhoCustom) {
             DataTransacao: new Date(),
           },
         });
-
+        
         await prisma.carrinho.delete({
-          where: { IdCarrinho: carrinho.IdCarrinho },
+          where: { IdCarrinho: carrinho.IdCarrinho},
         });
       },
       { maxWait: 15000, timeout: 15000 } // Ajuste o tempo conforme necessário

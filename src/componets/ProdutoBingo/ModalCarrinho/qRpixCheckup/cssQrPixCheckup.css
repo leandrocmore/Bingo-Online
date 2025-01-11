@@ -1,0 +1,100 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 1000px;
+  height: 80%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.carrinho-fundo {
+  max-width: 1000px;
+  width: 800px;
+  height: auto;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaçamento entre os grupos de inputs */
+  max-width: 400px; /* Largura máxima do formulário */
+  margin: 0 auto; /* Centraliza o formulário na página */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column; /* Coloca o rótulo acima do input */
+  gap: 5px; /* Espaço entre o rótulo e o input */
+}
+
+label {
+  font-weight: bold; /* Destaca o texto do rótulo */
+  color: white; /* Cor do texto */
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.carrinho-fundo ul p {
+  margin-right: auto;
+  border-radius: 2px;
+  outline: 1px solid rgb(41, 41, 41);
+  outline-offset: 4px;
+}
+
+.revisao-ul button, .cadastro button {
+  margin-left: 10px;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.revisao-ul button:hover, .cadastro button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+p, h2, form {
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1199px) {
+  .carrinho-fundo {
+    max-width: 100%;
+    width: 90%;
+    height: auto;
+  }
+}

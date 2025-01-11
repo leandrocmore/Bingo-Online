@@ -59,7 +59,7 @@ export default function Header() {
           <form onSubmit={ChamadaSubmit}>
             
              <Link className="Link-Home" href="/">Home</Link>
-            <button type="submit">Meu Bingo</button>
+            
             <input
               type="text"
               name="Tel"
@@ -67,6 +67,7 @@ export default function Header() {
               onChange={Registro}
               placeholder="Seu Telefone"
             />
+            <button type="submit">Buscar Bingo</button>
           </form>
         </li> 
       </ul>

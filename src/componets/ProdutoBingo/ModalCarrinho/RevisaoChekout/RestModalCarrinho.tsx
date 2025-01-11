@@ -1,5 +1,6 @@
 "use client"
-import { RestLnkApi } from "../../../lib/linkRotas/LinkAPI"
+
+import { RestLnkApi } from "../../../../lib/linkRotas/LinkAPI"
 
 type UserClienteData = {
   Nome: string;
@@ -14,6 +15,13 @@ type CarrinhoData = {
   Status: string;
   DataHoraInicio: string;
   // Outros campos relevantes
+};
+type Ckeckup = {
+  addressKey:string;
+  description: string;
+  value: number;
+  expirationDate: string;
+  externalReference:string; //id do carrinho aqui 
 };
 
 
@@ -51,5 +59,13 @@ export const PostUsersCarrinho = async (Data: CarrinhoData) => {
     throw error; // Lança o erro para ser tratado onde a função for chamada
   }
 };
-
+export const PostCheckupAsaas = async (Data:Ckeckup) =>{
+  try {
+    const response = await RestLnkApi.post('/users/rotaUser/chekout', Data);
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao crir o chekout :', error);
+    throw error; // Lança o erro para ser tratado onde a função for chamada
+  }
+}
 

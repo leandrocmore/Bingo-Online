@@ -30,14 +30,15 @@ model UserClientes {
 // O carrinho só estará ativo se não tiver expirado.
 // A lógica do carrinho envolve mudar o status do produto para processadoPG.
 model Carrinho {
-  IdCarrinho       Int    @id @default(autoincrement())
+  IdCarrinho      String  @id   @unique 
   ProdutoId       Int[]
   DataHoraInicio  DateTime      
   Quantidade      Int           @default(1)
   TelClientesId    String
+  AssasCkeckup     AssasCkeckup[]  @relation("CarrinhoAssas")
   Status          CarrinhoStatus @default(EmProcessamento)
-   UserClientes    UserClientes  @relation(fields: [TelClientesId], references: [Tel])
-
+  UserClientes    UserClientes  @relation(fields: [TelClientesId], references: [Tel])
+  
   @@map("Carrinho")
 }
 
@@ -46,6 +47,15 @@ enum CarrinhoStatus {
   PagamentoPendente
   PagamentoConfirmado
   Cancelado
+}
+model AssasCkeckup{
+  IdAssasCkeckup Int          @id @default(autoincrement())
+  EncodedImage    String
+  Payload   String
+  carrinhoId   String
+  
+  Carrinho      Carrinho @relation("CarrinhoAssas", fields: [carrinhoId], references: [IdCarrinho], onDelete: Cascade)
+  @@map("AssasCkeckup") 
 }
 
 // Tabela de produtos (cartelas e números para venda)

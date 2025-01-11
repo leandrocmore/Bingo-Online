@@ -4,6 +4,7 @@ import Fundo from "@/componets/Main/MainComponents/Fundo/Fundo";
 import { useEffect, useState } from "react";
 import { useSearchParams ,useRouter} from "next/navigation";
 import { GetUserPagos } from "./RestUserPagos";
+import "./CssUserPagos.css"
 
 interface Transacao {
   Id: number;
@@ -69,7 +70,7 @@ export default function UserPagos() {
   } else if (userData.CarrinhoId.length === 0 && userData.TransacaoId.length === 0) {
    
     content = (
-      <div>
+      <div className="user-pagos">
        
             
         <p><strong>Nome:</strong> {userData.Nome}</p>
@@ -83,10 +84,10 @@ export default function UserPagos() {
     
   } else if (userData.TransacaoId.length > 0) {
     content = (
-      <div>
+      <div className="user-pagos">
         <p>Transações encontradas:</p>
         {userData.TransacaoId.map((transacao) => (
-          <div key={transacao.Id} style={{ marginBottom: "1em", padding: "0.5em", border: "1px solid #ccc" }}>
+          <div key={transacao.Id}>
             <p><strong>Telefone:</strong> {userData.Tel}</p>
             <p><strong>Nome:</strong> {userData.Nome}</p>
             <p><strong>Status:</strong> {transacao.Status}</p>
@@ -101,10 +102,10 @@ export default function UserPagos() {
   } else if (userData.CarrinhoId.length > 0) {
   
     content = (
-      <div>
+      <div className="user-pagos">
         <p>esperando pagamento</p>
         {userData.CarrinhoId.map((carrinho) => (
-          <div key={carrinho.IdCarrinho} style={{ marginBottom: "1em", padding: "0.5em", border: "1px solid #ccc" }}>
+          <div key={carrinho.IdCarrinho} >
             <p><strong>Telefone:</strong> {userData.Tel}</p>
             <p><strong>Nome:</strong> {userData.Nome}</p>
             <p><strong>Status:</strong> {carrinho.Status}</p>

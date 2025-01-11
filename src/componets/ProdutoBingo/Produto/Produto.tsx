@@ -6,7 +6,8 @@ import { getRestProduto, getRestProdutoPreco } from "./restProduto";
 import "./cssProduto.css";
 import Fundo from "@/componets/Main/MainComponents/Fundo/Fundo";
 import { useCart } from "../context/CartContext";
-import CarrinhoModal from "../ModalCarrinho/modalCarrinho";
+import CarrinhoModal from "../ModalCarrinho/RevisaoChekout/modalCarrinho";
+import QRpixCheckup from "../ModalCarrinho/qRpixCheckup/qRpixCheckup";
 
 interface Produto {
   Id: number;
@@ -20,11 +21,33 @@ interface ProdutoPreco {
 }
 
 export default function Produto() {
-  const { cart, addToCart, removeFromCart, clearCart } = useCart();
+  const { cart, addToCart, removeFromCart } = useCart();
   const [produto, setProduto] = useState<Produto[]>([]);
   const [preco, setPreco] = useState<ProdutoPreco[]>([]);
   const [produtosBloqueados, setProdutosBloqueados] = useState<number[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [qRxCheckup, setqRpixCheckup] = useState(false)
+  const [idGerado, setIdGerado] = useState("");
+// este eo invocador de click da pagina pix
+const PixCheckupClick = async () => {
+  console.log("Pix Checkup iniciado");
+
+  // Simula uma tarefa assíncrona, como chamar uma API
+  // Pode ser a sua chamada de rota, como você mencionou
+  await new Promise(resolve => setTimeout(resolve, 4000)); // Simula um delay de 1 segundo
+
+  // Agora, altera os estados, mas apenas depois da operação assíncrona
+  setqRpixCheckup(true);  // Exibe o QR Code
+  setShowModal(false); // Fecha o modal
+
+  console.log("Pix Checkup finalizado");
+};
+
+
+  //recebe o id do pix modal carrinho 
+  const RetornoIdGenerated = (id: string) => {
+    setIdGerado(id);
+  };
 
   useEffect(() => {
     const VendaProduto = async () => {
@@ -129,14 +152,21 @@ export default function Produto() {
       {showModal && (
         <CarrinhoModal
           cart={cart}
+          onClick={PixCheckupClick}
           onClose={() => setShowModal(false)}
+          onIdGenerated={RetornoIdGenerated}
           removeFromCart={handleRemoveFromCart}
-          clearCart={() => {
-            clearCart();
-            setProdutosBloqueados([]); // Desbloqueia todos os produtos ao limpar o carrinho
-          }}
+          
         />
-      )}
+      )},
+       
+              {qRxCheckup && (
+                <QRpixCheckup
+                idGerado={idGerado}
+                onClose={() => setqRpixCheckup(false)}
+                />
+              )}
+      
     </Fundo>
   );
 }

@@ -11,8 +11,9 @@ export async function GET() {
   try {
     const UserClientes = await PrismaGlobal.userClientes.findMany({
       include: {
-        CarrinhoId: true,
+        CarrinhoId:{include:{AssasCkeckup:true}},
         TransacaoId: true,
+        
       },
     });
 

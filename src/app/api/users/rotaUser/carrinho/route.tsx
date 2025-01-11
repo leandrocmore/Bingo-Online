@@ -28,14 +28,43 @@ async function atualizarStatusProdutoIndisponivel(produtoIds: number[]) {
   }
 }
 
+//Get 
+
+export async function GET(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const idCarrinho = searchParams.get('idCarrinho'); // Certifique-se de usar 'idCarrinho' com 'i' minúsculo, pois é comum que URLs sejam case-sensitive.
+
+    if (!idCarrinho) {
+      return NextResponse.json({ mensagem: "Número de idCarrinho não fornecido" }, { status: 400 });
+    }
+
+    const Carrinho = await PrismaGlobal.carrinho.findMany({
+      where: { IdCarrinho: idCarrinho }, // Certifique-se de que a chave no banco de dados está correta
+      include: {
+        AssasCkeckup: true
+      },
+    });
+
+    return NextResponse.json({ mensagem: "ok", Carrinho });
+  } catch (error) {
+    return NextResponse.json(
+      { mensagem: "error", error },
+      { status: 500 }
+    );
+  }
+}
+
+
+
 // POST - Criar um carrinho e atualizar o status dos produtos
 export async function POST(req: NextRequest) {
 
   try {
-    const { ProdutoId, DataHoraInicio, Quantidade, TelClientesId, Status } = await req.json();
+    const {IdCarrinho ,ProdutoId, DataHoraInicio, Quantidade, TelClientesId, Status } = await req.json();
 
     // Validação de campos obrigatórios
-    if (!TelClientesId || !ProdutoId || !DataHoraInicio || !Quantidade || !Status) {
+    if (!IdCarrinho  || !TelClientesId || !ProdutoId || !DataHoraInicio || !Quantidade || !Status) {
       return NextResponse.json({ message: "Todos os campos são obrigatórios." }, { status: 400 });
     }
 
@@ -53,11 +82,13 @@ export async function POST(req: NextRequest) {
     // Criar o carrinho
     const Carrinho = await PrismaGlobal.carrinho.create({
       data: {
+        IdCarrinho, 
         ProdutoId,
         DataHoraInicio,
         Quantidade,
         TelClientesId,
         Status,
+        
       },
     });
 
