@@ -105,8 +105,8 @@ export async function limparCarrinhosExpirados() {
         try {
           console.log(`Processando carrinho ID: ${carrinho.IdCarrinho}`);
           const dataInicio = new Date(carrinho.DataHoraInicio); // UTC
-          const tempoDecorrido = (agora.getTime() - dataInicio.getTime()) / 1000; // Tempo em segundos
-          const expirou = tempoDecorrido >= 1 * 60; // 5 minutos
+          const tempoDecorrido = (agora.getTime() - dataInicio.getTime()) / 5000; // Tempo em segundos
+          const expirou = tempoDecorrido >= 1 * 60; // 20 * 60 minutos
     
           console.log(`Carrinho ${carrinho.IdCarrinho} expirou: ${expirou}`);
     

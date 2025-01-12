@@ -9,7 +9,7 @@ import { limparCarrinhosExpirados } from "@/lib/controleApi/LimpezaAtualizador";
 //import { limparCarrinhosExpirados} from "../../../../../lib/controleApi/" 
 
 // Iniciar limpeza automática de carrinhos expirados
-setInterval(limparCarrinhosExpirados , 1000)
+setInterval(limparCarrinhosExpirados , 30000)
 
 //Validação do número de telefone (opcional)
 //const telefoneValido = /^\d{2}\d{9}$/; // Exemplo: 15996982622
