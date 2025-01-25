@@ -15,7 +15,7 @@ export const metadata = {
     siteName: "Bingo Online",
     images: [
       {
-        url: "https://drive.google.com/file/d/1tJlyooQRR78jAfUpup-XFvguH_5V3jTF/view?usp=drive_link",
+        url: "https://bingo-online-nu.vercel.app",
         width: 1200,
         height: 630,
         alt: "Imagem do Bingo Online",
