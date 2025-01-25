@@ -97,6 +97,7 @@ const CarrinhoModal: React.FC<CarrinhoModalProps> = ({
 
   const ChamadaSubimit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+       onClick()
     try {
       await PostUserClientes(dataPost);
 
@@ -189,7 +190,7 @@ const CarrinhoModal: React.FC<CarrinhoModalProps> = ({
                 required
               />
             </div>
-            <button onClick={onClick} type="submit">Pagar</button>
+            <button  type="submit">Pagar</button>
           </form>
           <button onClick={onClose}>Fechar</button>
         </Fundo>
