@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 
 import "./globals.css";
 import ProvidersWrapper from "@/lib/provaider/providersAuth";
