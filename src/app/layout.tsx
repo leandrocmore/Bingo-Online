@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "Bingo Online",
-  description: "Jogue bingo online ao vivo e divirta-se!",
+  description: "Jogue bingo online",
   openGraph: {
     title: "Bingo Online - Jogue ao Vivo!",
     description: "Participe de sorteios ao vivo e concorra a prêmios incríveis.",
@@ -15,7 +15,7 @@ export const metadata = {
     siteName: "Bingo Online",
     images: [
       {
-        url: "https://drive.google.com/file/d/1tJlyooQRR78jAfUpup-XFvguH_5V3jTF/view?usp=sharing",
+        url: "https://drive.google.com/file/d/1tJlyooQRR78jAfUpup-XFvguH_5V3jTF/view?usp=drive_link",
         width: 1200,
         height: 630,
         alt: "Imagem do Bingo Online",
